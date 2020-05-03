@@ -1,2 +1,0 @@
-# SpringKaulia
-[Yes, No, Maybe]
