@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- <link th:href="@{Style.css}" rel="stylesheet" | xmlns:th="http://www.thymeleaf.org" | th:src=@"{/static/cat.jpg"}> -->
+    <!-- <link th:href="@{Style.css}" rel="stylesheet" | | th:src=@"{/static/cat.jpg"}> -->
+    <link th:href="@{style.css}" rel="stylesheet">
     <meta charset="UTF-8">
     <title>This Website Does Not Have a Name</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <div class="potato">
-        <p>What even is this?</p>
-            <img width="150" src="cat.jpg" alt="cat.jpg">
-    </div>
+<h1>Hello World!</h1>
+<div class="potato">
+    <p>What even is this?</p>
+    <a href="https://lmgtfy.com/?q=crying+cat" target="_blank">
+        <img width="150" src="cat.jpg" alt="cat.jpg">
+    </a>
+</div>
+<div class="tableWhole">
+    <table>
+        <thead>
+            <tr class="tableHeader">
+                <th>Salesman ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>CPR</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="tableInfo">
+            <tr th:each="salesman:${salesmanList}">
+
+                    <td th:text="${salesman.salesman_id}"></td>
+                    <td th:text="${salesman.first_name}"></td>
+                    <td th:text="${salesman.last_name}"></td>
+                    <td th:text="${salesman.cpr}"></td>
+                    <td>
+                        <form action="/Delete" method="POST">
+                            <button class="button" type="submit" th:value="${salesman.salesman_id}" name ="salesman_id">Delete</button>
+                        </form>
+                    </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

@@ -1,0 +1,23 @@
+body
+{
+    margin: 10px;
+}
+
+.tableWhole
+{
+    margin: 50px;
+}
+.tableInfo
+{
+    background-color: darkcyan;
+}
+.tableHeader
+{
+    background-color: cyan;
+}
+.button
+{
+    background-color: black;
+    color: darkgrey;
+;
+}
