@@ -21,9 +21,15 @@ public class SalesmanRepo
         RowMapper<Salesman> rm_salesman = new BeanPropertyRowMapper<>(Salesman.class);
         return template.query(query,rm_salesman);
     }
-    public int addSalesman(Salesman salesman)
+    public Boolean addSalesman(Salesman salesman)
     {
-        return -1;
+        String first_name = salesman.getFirst_name();
+        String last_name = salesman.getLast_name();
+        String cpr = salesman.getCpr();
+
+        String query = "INSERT INTO salesman VALUES( DEFAULT, ?, ?, ?);";
+        Boolean deleted = template.update(query,first_name, last_name, cpr) <0;
+        return deleted;
     }
 
     public Salesman findSalesmanById(int salesman_id)

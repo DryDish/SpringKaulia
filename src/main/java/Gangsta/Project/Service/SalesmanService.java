@@ -19,7 +19,7 @@ public class SalesmanService
     {
         return salesmanRepo.fetchAll();
     }
-    public int addSalesman(Salesman salesman)
+    public boolean addSalesman(Salesman salesman)
     {
         return salesmanRepo.addSalesman(salesman);
     }
